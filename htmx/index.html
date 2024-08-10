@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://unpkg.com/htmx.org@2.0.1"></script>
+</head>
+<body>
+    <!-- Button that sends a GET request via AJAX -->
+    <button 
+        hx-get="http://localhost:8080" 
+        hx-swap="outerHTML">
+        
+        Click Me
+    </button>
+
+    <!-- Button that triggers an alert popup -->
+    <button 
+        hx-on="click:alert('Clicked!')">
+        alert popup!
+    </button>
+</body>
