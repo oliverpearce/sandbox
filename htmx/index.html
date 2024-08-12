@@ -6,15 +6,26 @@
 <body>
     <!-- Button that sends a GET request via AJAX -->
     <button 
-        hx-get="http://localhost:8080" 
+        hx-get="http://localhost:8080/" 
         hx-swap="outerHTML">
-        
-        Click Me
+        Send GET Request
     </button>
 
-    <!-- Button that triggers an alert popup -->
+    <!-- Button that sends a PUT request via AJAX -->
     <button 
-        hx-on="click:alert('Clicked!')">
-        alert popup!
+        hx-put="http://localhost:8080/" 
+        hx-swap="outerHTML">
+        Send PUT Request
+    </button>
+
+    <!-- Triggers an alert popup with htmx -->
+    <button hx-on:click="alert('htmx is p cool huh')">
+        htmx alert
+    </button>
+
+    <!-- Triggers an alert normally -->
+    <button 
+        onclick="alert('base html is cool too ig...')">
+        normal alert
     </button>
 </body>

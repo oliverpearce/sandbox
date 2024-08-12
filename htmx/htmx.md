@@ -12,4 +12,6 @@ this is done through a HTTP verb and the URL endpoint of the server:
 </button>
 ```
 
-will come back later, doesn't work atp
+- - -
+## helpful links:
+[documentation](https://htmx.org/docs/)
