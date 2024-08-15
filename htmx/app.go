@@ -2,11 +2,27 @@ package main
 
 import (
 	"fmt"
+	"html/template"
 	"net/http"
 )
 
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		tmpl, err := template.ParseFiles("index.html")
+
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+
+		data := struct {
+			Message string
+		}{
+			Message: "Hello World!",
+		}
+
+		tmpl.Execute(w, data)
+
 		switch r.Method {
 		case "GET":
 			fmt.Fprintf(w, "<p>GET request received</p>")
@@ -19,6 +35,6 @@ func main() {
 		}
 	})
 
-	fmt.Println("Server is running on http://localhost:8080")
+	fmt.Println("Started http server on port :8080")
 	http.ListenAndServe(":8080", nil)
 }
